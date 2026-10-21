@@ -980,3 +980,153 @@ body.dark .dashboard-panel {
     transition: none !important;
   }
 }
+
+/* ===== Final compatibility fixes for the supplied HTML + app.js ===== */
+.article-placeholder {
+  display: grid;
+  min-height: 180px;
+  place-items: center;
+  background: var(--soft);
+  font-size: 2rem;
+}
+.article-card .card-content { min-width: 0; }
+.article-sentence {
+  display: block;
+  margin: 1.05em 0;
+  line-height: 2;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.article-sentence .sentence-unit {
+  display: inline;
+  line-height: inherit;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+.article-sentence .word-chip {
+  display: inline;
+  width: auto;
+  max-width: 100%;
+  margin: 0;
+  padding: 0 1px;
+  border: 0;
+  border-radius: 3px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+  vertical-align: baseline;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: inherit;
+  text-decoration: underline;
+  text-decoration-color: #8b7ee7a0;
+  text-underline-offset: 3px;
+}
+.article-sentence .word-chip:hover,
+.article-sentence .word-chip:focus-visible {
+  background: #e8e4ff;
+  color: #4335a8;
+}
+.article-sentence .translate-btn {
+  display: inline-block;
+  width: auto;
+  margin: 0 3px;
+  padding: 4px 9px;
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  background: var(--soft);
+  color: var(--accent);
+  font-size: .75rem;
+  line-height: 1.5;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+.article-sentence .translation-result {
+  display: block;
+  width: 100%;
+  margin: 8px 0 14px;
+  padding: 10px 13px;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  background: var(--soft);
+  color: var(--text);
+  font-size: .96rem;
+  line-height: 1.8;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.article-sentence .translation-result[hidden] { display: none !important; }
+body.dark .article-sentence .word-chip:hover,
+body.dark .article-sentence .word-chip:focus-visible { background: #39335f; color: #fff; }
+@media (max-width: 760px) {
+  .article-placeholder { min-height: 160px; }
+  .article-sentence { line-height: 2; }
+}
+
+
+/* ===== Reading area: adjustable text size, headings, toolbar ===== */
+:root { --reader-font-size: 18px; }
+
+.reader-toolbar {
+  position: sticky;
+  top: 68px;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: -6px -6px 8px;
+  padding: 8px 6px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+}
+.font-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.font-controls button {
+  min-width: 42px;
+  margin: 0;
+  padding: 7px 11px;
+  font-weight: 700;
+}
+.font-controls button:disabled { opacity: .4; cursor: not-allowed; }
+.font-size-label {
+  min-width: 46px;
+  text-align: center;
+  color: var(--muted);
+  font-size: .85rem;
+}
+
+/* Higher specificity than the responsive rules above, so the chosen size always wins. */
+.reader #articleBody .article-text {
+  font-size: var(--reader-font-size);
+  line-height: 1.95;
+}
+.reader #articleBody .article-text .translation-result { font-size: .88em; }
+.reader #articleBody .article-text .article-heading {
+  margin: 1.7em 0 .3em;
+  line-height: 1.3;
+  color: var(--text);
+}
+.reader #articleBody .article-text h2.article-heading { font-size: 1.4em; }
+.reader #articleBody .article-text h3.article-heading { font-size: 1.2em; }
+.reader #articleBody .article-text h4.article-heading { font-size: 1.05em; }
+
+.reader-loading,
+.reader-error { color: var(--muted); }
+.reader-error {
+  padding: 14px 16px;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  background: var(--soft);
+}
+
+@media (max-width: 520px) {
+  .reader-toolbar { top: 56px; }
+  .font-controls button { min-width: 38px; padding: 6px 9px; }
+}
