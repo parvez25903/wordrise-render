@@ -11,3 +11,152 @@
 
 /* Reading progress dashboard */
 .dashboard-panel{margin:0 0 22px;padding:clamp(18px,3vw,28px);background:linear-gradient(145deg,var(--card),#f4f1ff);border-color:#e8e2ff}.dashboard-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:20px}.dashboard-heading h2{margin:2px 0;font-size:1.55rem;letter-spacing:-.035em}.muted-copy{color:var(--muted);font-size:.88rem;margin:4px 0}.dashboard-date{white-space:nowrap;padding:7px 11px;border-radius:99px;background:var(--card);border:1px solid var(--border);color:var(--muted);font-size:.82rem}.stats-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.stat-card{position:relative;display:flex;flex-direction:column;align-items:flex-start;min-width:0;padding:17px;border-radius:16px;background:var(--card);border:1px solid var(--border);box-shadow:0 5px 18px #30205e08}.stat-icon{display:grid;place-items:center;width:35px;height:35px;border-radius:11px;background:var(--soft);font-size:1.1rem;margin-bottom:12px}.stat-label{font-size:.82rem;color:var(--muted);font-weight:650}.stat-card strong{font-size:2rem;line-height:1.2;letter-spacing:-.05em;margin:4px 0}.stat-card small{font-size:.76rem;color:var(--muted)}.dashboard-chart-card{margin-top:15px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:17px 18px}.chart-title{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.chart-title h3{margin:0;font-size:1rem}.chart-legend{font-size:.78rem;color:var(--muted);display:flex;align-items:center;gap:6px;white-space:nowrap}.chart-legend i{display:inline-block;width:9px;height:9px;border-radius:3px;background:var(--accent)}.weekly-chart{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px;align-items:end;height:150px;padding-top:12px}.chart-day{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:5px;font-size:.76rem;color:var(--muted)}.chart-day strong{font-size:.8rem;color:var(--text)}.bar-track{width:min(100%,30px);height:94px;background:var(--soft);border-radius:8px 8px 4px 4px;display:flex;align-items:flex-end;overflow:hidden}.bar-fill{width:100%;min-height:2px;background:linear-gradient(180deg,#9d8df8,var(--accent));border-radius:7px 7px 3px 3px;transition:height .25s ease}.dark .dashboard-panel{background:linear-gradient(145deg,var(--card),#272342)}.dark .dashboard-date{background:var(--card)}@media(max-width:900px){.stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.dashboard-heading{flex-direction:column}.dashboard-date{align-self:flex-start}.stat-card{padding:13px}.stat-card strong{font-size:1.7rem}.dashboard-chart-card{padding:14px 10px}.weekly-chart{gap:5px}}
+
+
+/* Reading sentence and word buttons */
+.sentence-unit {
+  display: inline;
+  line-height: 2.5;
+}
+
+.word-chip {
+  display: inline;
+  border: 0;
+  padding: 0 1px;
+  margin: 0;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  line-height: inherit;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.word-chip:hover,
+.word-chip:focus-visible {
+  color: #087f65;
+  background: #e4f6ef;
+  text-decoration: underline;
+}
+
+.translate-btn {
+  display: inline-block;
+  margin: 0 4px;
+  padding: 5px 9px;
+  border: 1px solid #cbded6;
+  border-radius: 7px;
+  background: #edf8f3;
+  color: #176b57;
+  font-size: 12px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.translate-btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.translation-result {
+  display: block;
+  margin: 5px 0 10px;
+  padding: 10px 12px;
+  border-left: 3px solid #16856c;
+  border-radius: 5px;
+  background: #edf8f3;
+  color: #243b32;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.word-dialog {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgb(0 0 0 / 55%);
+}
+
+.word-dialog-card {
+  position: relative;
+  width: min(100%, 580px);
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 24px;
+  border-radius: 16px;
+  background: white;
+  color: #202b38;
+  line-height: 1.7;
+}
+
+.dialog-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  border: 0;
+  background: transparent;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.dict-eyebrow {
+  color: #16856c;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.dict-bangla {
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 8px;
+  background: #edf8f3;
+}
+
+.dict-meaning {
+  padding: 12px 0;
+  border-bottom: 1px solid #e5eaf0;
+}
+
+.dict-example {
+  color: #687585;
+  font-style: italic;
+}
+
+.dict-footnote {
+  color: #687585;
+  font-size: 12px;
+}
+
+.source-link a {
+  color: #087f65;
+  overflow-wrap: anywhere;
+}
+
+.reading-paragraph {
+  font-size: 18px;
+  line-height: 2;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 520px) {
+  .word-dialog-card {
+    padding: 18px;
+  }
+
+  .reading-paragraph {
+    font-size: 16px;
+    line-height: 2;
+  }
+
+  .translate-btn {
+    padding: 4px 7px;
+  }
+}
